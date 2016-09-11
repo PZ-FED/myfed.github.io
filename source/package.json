@@ -1,0 +1,27 @@
+{
+  "name": "myfed",
+  "version": "1.0.0",
+  "description": "just my github site",
+  "main": "gulpfile.js",
+  "dependencies": {
+    "gulp-sass": "^2.3.2",
+    "gulp": "^3.9.1"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/myfed/myfed.github.io.git"
+  },
+  "keywords": [
+    "myfed"
+  ],
+  "author": "Paweł Ziętarski",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/myfed/myfed.github.io/issues"
+  },
+  "homepage": "https://github.com/myfed/myfed.github.io#readme"
+}
