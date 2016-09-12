@@ -1,2 +1,3 @@
 .idea/
-source/node_modules/
+.idea/*
+_myfed/node_modules/
