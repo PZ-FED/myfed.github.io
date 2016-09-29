@@ -1,112 +1,227 @@
-@import 'https://fonts.googleapis.com/css?family=Roboto:300,500';
+@import 'https://fonts.googleapis.com/css?family=Open+Sans:300,400,700|Raleway&subset=latin-ext';
 
-/* colors */
-$color-primary: #222;
-$color-secondary: #999999;
-$color-link: #3399ff;
-$color-header: #333;
+$menuWidth: 30%;
+$menuBgColor: #e4e4e4;
 
-/* headers */
-$font-h1: 500 3.3rem/1.4 'Roboto', sans-serif;
-$font-h2: 300 2rem/1.4 'Roboto', sans-serif;
-$font-h3: 500 2rem/1.4 'Roboto', sans-serif;
-$font-h4: 500 1.5rem/1.4 'Roboto', sans-serif;
-$font-h5: 500 1rem/1.4 'Roboto', sans-serif;
+$transitionDuration: .5s ease-in-out;
+$transitionDurationFast: .25s ease-in-out;
 
-/* text */
-$font-text: 300 1.4rem/1.4 sans-serif;
-$font-text-small: 300 1rem/1.4 'Roboto', sans-serif;
-$font-text-link: 300 1.4rem/1.4 'Roboto', sans-serif;
-
-/* structure */
-$container-side-padding: 20px;
+* {
+  margin: 0;
+  padding: 0;
+}
 
 body {
-  font: $font-text;
-  color: $color-primary;
-  min-width: 320px;
+  font-size: 16px;
+  font-family: 'Open Sans', sans-serif;
+}
+
+body > * {
+  font-size: 0.8rem;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Raleway', sans-serif;
+  padding: 1.5rem 0 1rem;
 }
 
 h1 {
-  font: $font-h1;
-  color: $color-header;
-  small {
-    color: $color-secondary;
-    font: $font-text-small;
+  font-size: 2.5rem;
+  small{
+    font-size: 40%;
     display: block;
+    color: #e4e4e4;
   }
 }
 
 h2 {
-  font: $font-h2;
-  color: $color-secondary;
-  text-transform: uppercase;
+  font-size: 2.2rem;
 }
 
 h3 {
-  color: $color-secondary;
-  font: $font-h3;
+  font-size: 1.9rem;
 }
 
 h4 {
-  color: $color-secondary;
-  font: $font-h4;
+  font-size: 1.6rem;
 }
 
 h5 {
-  color: $color-secondary;
-  font: $font-h5;
+  font-size: 1.3rem;
 }
 
-nav ul, footer ul {
-  font-family: 'Helvetica', 'Arial', 'Sans-Serif';
-  padding: 0px;
-  list-style: none;
-  font-weight: bold;
+h6 {
+  font-size: 1rem;
 }
 
-nav ul li, footer ul li {
-  display: inline;
-  margin-right: 20px;
-}
 
-a {
-  font: $font-text-link;
-  color: $color-link;
-  text-decoration: none;
-}
+.main-wrapper {
+  position: relative;
 
-a:hover {
-  text-decoration: underline;
-}
 
-p {
-  //font-size: 1.5em;
-  //line-height: 1.4em;
-  //color: #333;
-}
+  .content-wrapper {
+    display: inline-block;
+    width: 100%;
+    transition-duration: 1s;
+    & > *{
+      padding-left: 1rem;
+    }
+    & > header {
+      height: 70px;
+      padding-left: 70px;
+    }
 
-footer {
-  border-top: 1px solid #d5d5d5;
-  font-size: .8em;
-}
-
-ul.posts {
-  margin: 20px auto 40px;
-  font-size: 1.5em;
-}
-
-ul.posts li {
-  list-style: none;
-}
-
-/* structure*/
-
-.container {
-  width: 100%;
-  max-width: 1600px;
-  margin: 0 auto;
-  & > * {
-    padding: 0 $container-side-padding;
   }
+
+  .main-menu {
+    width: $menuWidth;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 10;
+    transition-duration: 1s;
+    transform: translateX(-100%);
+    a {
+      display: block;
+      padding: 1.2rem 0;
+      font-size: 1rem;
+      text-align: center;
+      margin: 1px 0;
+      border: 1px solid #e4e4e4;
+      width: 100%;
+      max-width: 100%;
+      text-decoration: none;
+      color: #010101;
+      transition-duration: $transitionDuration;
+      position: relative;
+      overflow: hidden;
+      border-radius: 3px;
+      span {
+        //transform: translateX(-100%);
+        position: absolute;
+        bottom: 0.4rem;
+        width: 100%;
+        display: block;
+        font-size: 0.7rem;
+        color: #636363;
+        opacity: 0;
+        transition-duration: $transitionDuration;
+      }
+
+      &:hover {
+        background-color: #f1f1f1;
+        span {
+          opacity: 1;
+          //transform: translateX(0);
+        }
+      }
+
+      &:first-child {
+        display: block;
+        position: absolute;
+        z-index: 10;
+        right: -15px;
+        top: 5px;
+        background-color: $menuBgColor;
+        border: 0;
+        transform: translateX(100%);
+        width: 50px;
+        height: 40px;
+        overflow: hidden;
+        padding: 10px;
+
+        .nav-icon {
+          width: 100%;
+          height: 100%;
+          max-height: 40px;
+          position: relative;
+          margin: 0 auto;
+          //-webkit-transform: rotate(0deg);
+          //-moz-transform: rotate(0deg);
+          //-o-transform: rotate(0deg);
+          transform: rotate(0deg);
+          //-webkit-transition: .5s ease-in-out;
+          //-moz-transition: .5s ease-in-out;
+          //-o-transition: .5s ease-in-out;
+          transition: $transitionDuration;
+          cursor: pointer;
+
+          span {
+            display: block;
+            position: absolute;
+            z-index: -1;
+            height: 6px;
+            width: 100%;
+            background: #111111;
+            border-radius: 0;
+            opacity: 1;
+            left: 0;
+            //-webkit-transform: rotate(0deg);
+            //-moz-transform: rotate(0deg);
+            //-o-transform: rotate(0deg);
+            transform: rotate(0deg);
+            //-webkit-transition: .25s ease-in-out;
+            //-moz-transition: .25s ease-in-out;
+            //-o-transition: .25s ease-in-out;
+            transition: $transitionDurationFast;
+
+            &:nth-child(1) {
+              top: 0;
+            }
+
+            &:nth-child(2) {
+              top: 50%;
+              transform: translateY(-50%);
+            }
+
+            &:nth-child(3) {
+              top: auto;
+              bottom: 0;
+            }
+
+          }
+        }
+
+      }
+    }
+  }
+
+  &.nav-opened {
+    .main-menu {
+      transform: translateX(0);
+
+      a:first-child {
+        .nav-icon {
+          span:nth-child(1) {
+            top: 18px;
+            -webkit-transform: rotate(135deg);
+            -moz-transform: rotate(135deg);
+            -o-transform: rotate(135deg);
+            transform: rotate(135deg);
+          }
+
+          span:nth-child(2) {
+            opacity: 0;
+            left: -60px;
+          }
+
+          span:nth-child(3) {
+            top: 18px;
+            -webkit-transform: rotate(-135deg);
+            -moz-transform: rotate(-135deg);
+            -o-transform: rotate(-135deg);
+            transform: rotate(-135deg);
+          }
+        }
+      }
+
+    }
+    .content-wrapper {
+      transform: translateX($menuWidth);
+    }
+  }
+}
+
+@media screen and (min-width: 769px) {
+
 }

@@ -1,11 +1,13 @@
 // project directories
 var path = {
     src: {
+        html: 'html/*.html',
         styles: 'scss/**/*.scss',
         scripts: 'scripts/**/*.js',
         images: 'images/**/*',
     },
     dest: {
+        html: '../',
         styles: '../css/',
         scripts: '../js/',
         images: '../img/',
@@ -26,8 +28,15 @@ var gulp = require('gulp'),
     notify = require('gulp-notify'),
     cache = require('gulp-cache'),
     livereload = require('gulp-livereload'),
+    htmlmin = require('gulp-htmlmin'),
     sourcemaps = require('gulp-sourcemaps');
 
+// html
+gulp.task('html', function() {
+    return gulp.src(path.src.html)
+        .pipe(htmlmin({collapseWhitespace: true}))
+        .pipe(gulp.dest(path.dest.html));
+});
 
 // Styles
 gulp.task('styles', function () {
@@ -36,7 +45,7 @@ gulp.task('styles', function () {
         .pipe(sourcemaps.init())
         .pipe(autoprefixer('last 2 version', 'safari 5', 'ie 8', 'ie 9', 'opera 12.1', 'ios 6', 'android 4'))
         .pipe(concat('style.css'))
-        .pipe(gulp.dest(path.dest.styles))
+        // .pipe(gulp.dest(path.dest.styles)) // produce unminified css file
         .pipe(rename({suffix: '.min'}))
         .pipe(minifycss())
         .pipe(sourcemaps.write())
@@ -48,8 +57,8 @@ gulp.task('styles', function () {
 gulp.task('scripts', function () {
     return gulp.src(path.src.scripts)
         .pipe(sourcemaps.init())
-        .pipe(concat('main.js'))
-        .pipe(gulp.dest(path.dest.scripts))
+        .pipe(concat('scripts.js'))
+        //.pipe(gulp.dest(path.dest.scripts)) // produce unminified javascript file
         .pipe(rename({suffix: '.min'}))
         .pipe(uglify())
         .pipe(sourcemaps.write())
@@ -73,12 +82,17 @@ gulp.task('clean', function () {
 
 // Default task
 gulp.task('default', ['clean'], function () {
-    gulp.run('styles', 'scripts', 'images');
+    gulp.run('html','styles', 'scripts', 'images');
 });
 
 // Watch
 gulp.task('watch', function () {
 
+    // Watch .html files
+    gulp.watch(path.src.html, function (event) {
+        console.log('File ' + event.path + ' was ' + event.type + ', running tasks...');
+        gulp.run('html');
+    });
     // Watch .scss files
     gulp.watch(path.src.styles, function (event) {
         console.log('File ' + event.path + ' was ' + event.type + ', running tasks...');
