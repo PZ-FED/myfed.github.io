@@ -1,3 +1,6 @@
+
+// npm install gulp-sass gulp-autoprefixer gulp-clean-css gulp-uglify gulp-imagemin gulp-rename gulp-clean gulp-concat gulp-notify gulp-cache gulp-livereload gulp-htmlmin gulp-sourcemaps
+
 // project directories
 var path = {
     src: {
@@ -10,7 +13,7 @@ var path = {
         html: '../',
         styles: '../css/',
         scripts: '../js/',
-        images: '../img/',
+        images: '../images/',
     }
 };
 

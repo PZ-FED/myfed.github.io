@@ -1,7 +1,7 @@
 @import 'https://fonts.googleapis.com/css?family=Open+Sans:300,400,700|Raleway&subset=latin-ext';
 
 $menuWidth: 30%;
-$menuBgColor: #009999;
+$leadingColor: #009999;
 
 $transitionDuration: .5s ease-in-out;
 $transitionDurationFast: .25s ease-in-out;
@@ -11,12 +11,20 @@ $transitionDurationFast: .25s ease-in-out;
   padding: 0;
 }
 
+
+html,
 body {
-  font-size: 16px;
+  height:100%;
+}
+
+
+body {
+  font-size: 18px;
   font-family: 'Open Sans', sans-serif;
 
   width: 100%;
-  overflow: hidden;
+  //overflow: hidden;
+
 }
 
 body > * {
@@ -26,43 +34,72 @@ body > * {
 h1, h2, h3, h4, h5, h6 {
   font-family: 'Raleway', sans-serif;
   padding: 1.5rem 0 1rem;
+  small{
+    font-size: 0.8rem;
+    display: block;
+    color: $leadingColor;
+  }
+  span{
+    display: block;
+    font-size: 70%;
+    letter-spacing: 2px;
+    color: $leadingColor;
+  }
 }
 
 h1 {
   font-size: 2.5rem;
-  small{
-    font-size: 40%;
-    display: block;
-    color: #e4e4e4;
-  }
+
 }
 
 h2 {
-  font-size: 2.2rem;
+  font-size: 2rem;
 }
 
 h3 {
-  font-size: 1.9rem;
+  font-size: 1.5rem;
+  small{
+    color: #666;
+  }
 }
 
 h4 {
-  font-size: 1.6rem;
+  font-size: 1.3rem;
 }
 
 h5 {
-  font-size: 1.3rem;
+  font-size: 1.1rem;
 }
 
 h6 {
   font-size: 1rem;
 }
 
+a{
+  color: $leadingColor;
+}
 
 .main-wrapper {
   position: relative;
-
+  background: transparent url('../images/background.jpg') no-repeat center top / cover;
+  min-height: 100%;
+  display: table;
+  width: 100%;
 
   .content-wrapper {
+    background-color: rgba(255,255,255,0.8);
+    min-height: 100%;
+
+    &.middle{
+      display: table-cell;
+      vertical-align: middle;
+    }
+
+    //webkit-box-shadow: -6px 0px 0px 0px rgba(0,0,0,0.75);
+    //-moz-box-shadow: -6px 0px 0px 0px rgba(0,0,0,0.75);
+    box-shadow: -6px 0px 0px 0px $leadingColor;
+
+
     display: inline-block;
     width: 100%;
     transition-duration: 1s;
@@ -125,7 +162,7 @@ h6 {
         z-index: 10;
         right: -15px;
         top: 5px;
-        background-color: $menuBgColor;
+        background-color: $leadingColor;
         border: 0;
         transform: translateX(100%);
         width: 40px;
