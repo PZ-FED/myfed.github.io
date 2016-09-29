@@ -14,6 +14,9 @@ $transitionDurationFast: .25s ease-in-out;
 body {
   font-size: 16px;
   font-family: 'Open Sans', sans-serif;
+
+  width: 100%;
+  overflow: hidden;
 }
 
 body > * {
