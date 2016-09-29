@@ -1,7 +1,7 @@
 @import 'https://fonts.googleapis.com/css?family=Open+Sans:300,400,700|Raleway&subset=latin-ext';
 
 $menuWidth: 30%;
-$menuBgColor: #e4e4e4;
+$menuBgColor: #009999;
 
 $transitionDuration: .5s ease-in-out;
 $transitionDurationFast: .25s ease-in-out;
@@ -128,17 +128,18 @@ h6 {
         background-color: $menuBgColor;
         border: 0;
         transform: translateX(100%);
-        width: 50px;
+        width: 40px;
         height: 40px;
+        border-radius: 50%;
         overflow: hidden;
-        padding: 10px;
+        padding: 0;
 
         .nav-icon {
-          width: 100%;
-          height: 100%;
+          width: 60%;
+          height: 20px;
           max-height: 40px;
           position: relative;
-          margin: 0 auto;
+          margin: 9px auto 0;
           //-webkit-transform: rotate(0deg);
           //-moz-transform: rotate(0deg);
           //-o-transform: rotate(0deg);
@@ -153,9 +154,9 @@ h6 {
             display: block;
             position: absolute;
             z-index: -1;
-            height: 6px;
+            height: 3px;
             width: 100%;
-            background: #111111;
+            background: #FFF;
             border-radius: 0;
             opacity: 1;
             left: 0;
