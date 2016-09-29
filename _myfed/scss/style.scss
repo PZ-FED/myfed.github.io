@@ -79,6 +79,10 @@ a{
   color: $leadingColor;
 }
 
+.leading-text{
+  font-size: 1.3rem;
+}
+
 .main-wrapper {
   position: relative;
   background: transparent url('../images/background.jpg') no-repeat center top / cover;
@@ -95,6 +99,10 @@ a{
       vertical-align: middle;
     }
 
+    .wrapper{
+      max-width: 80%;
+      margin: 0 auto;
+    }
     //webkit-box-shadow: -6px 0px 0px 0px rgba(0,0,0,0.75);
     //-moz-box-shadow: -6px 0px 0px 0px rgba(0,0,0,0.75);
     box-shadow: -6px 0px 0px 0px $leadingColor;
