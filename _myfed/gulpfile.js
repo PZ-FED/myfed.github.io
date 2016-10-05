@@ -4,7 +4,7 @@
 // project directories
 var path = {
     src: {
-        html: 'html/*.html',
+        html: 'html/**/*.html',
         styles: 'scss/**/*.scss',
         scripts: 'scripts/**/*.js',
         images: 'images/**/*',

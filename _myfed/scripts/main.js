@@ -1,3 +1,5 @@
+var mobile = false;
+
 var menuActions = function (e) {
     e.stopPropagation();
 
@@ -10,8 +12,24 @@ var menuActions = function (e) {
     }
 }
 
+
+var checkIfMobile = function(){
+    var windowScreenWidth = $(window).width();
+    var mainWrapper = $('#main-wrapper');
+
+    console.log(windowScreenWidth);
+
+    if (windowScreenWidth < 769){
+        mainWrapper.addClass('mobile');
+        return true;
+    }else{
+        mainWrapper.removeClass('mobile');
+        return false;
+    }
+}
+
 var setEmailLink = function () {
-console.log('setEmailLink');
+// function replacing addres email for users
     if ($('.email').length > 0) {
         var emailAddress = $('.email').text().replace('{at}', '@');
         $('.email').html('<a class="email" href="mailto:' + emailAddress + '>subject=Contact_from_myfed.github.io">' + emailAddress + '</a>');
@@ -19,8 +37,29 @@ console.log('setEmailLink');
     }
 }
 
+var showMore = function(e){
+    // e.preventDefault();
+    // e.stopPropagation();
+    if (mobile){
+        var clickedElement =$(e.target);
+        clickedElement.toggleClass('shown').next('.show-more-content').toggleClass('shown');
+    }
+
+
+
+}
+
 $(document).ready(function () {
+
+    mobile = checkIfMobile();
+
+    $(window).resize(function(){
+        mobile = checkIfMobile();
+    });
     setEmailLink();
+
+
+    $('.content-wrapper').find('.show-more').bind('click', showMore);
 
     $('#main-menu').children('a').bind('click', menuActions);
 
