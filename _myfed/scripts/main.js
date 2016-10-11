@@ -17,7 +17,7 @@ var checkIfMobile = function(){
     var windowScreenWidth = $(window).width();
     var mainWrapper = $('#main-wrapper');
 
-    console.log(windowScreenWidth);
+    // console.log(windowScreenWidth);
 
     if (windowScreenWidth < 769){
         mainWrapper.addClass('mobile');

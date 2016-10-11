@@ -1,16 +1,18 @@
 
-// npm install gulp-sass gulp-autoprefixer gulp-clean-css gulp-uglify gulp-imagemin gulp-rename gulp-clean gulp-concat gulp-notify gulp-cache gulp-livereload gulp-htmlmin gulp-sourcemaps
+// npm install gulp-sass gulp-autoprefixer gulp-clean-css gulp-uglify gulp-imagemin gulp-rename gulp-clean gulp-concat gulp-notify gulp-cache gulp-livereload gulp-htmlmin gulp-sourcemaps gulp-jade
 
 // project directories
 var path = {
     src: {
         html: 'html/**/*.html',
+        jade: 'jade/pages/**/*.jade',
         styles: 'scss/**/*.scss',
         scripts: 'scripts/**/*.js',
         images: 'images/**/*',
     },
     dest: {
         html: '../',
+        jade: '../',
         styles: '../css/',
         scripts: '../js/',
         images: '../images/',
@@ -27,12 +29,21 @@ var gulp = require('gulp'),
     imagemin = require('gulp-imagemin'),
     rename = require('gulp-rename'),
     clean = require('gulp-clean'),
+    jade = require('gulp-jade'),
     concat = require('gulp-concat'),
     notify = require('gulp-notify'),
     cache = require('gulp-cache'),
     livereload = require('gulp-livereload'),
     htmlmin = require('gulp-htmlmin'),
     sourcemaps = require('gulp-sourcemaps');
+
+// jade
+gulp.task('jade', function() {
+    return gulp.src(path.src.jade)
+        .pipe(jade()) // pip to jade plugin
+        .pipe(gulp.dest(path.dest.jade)); // tell gulp our output folder
+});
+
 
 // html
 gulp.task('html', function() {
@@ -85,17 +96,22 @@ gulp.task('clean', function () {
 
 // Default task
 gulp.task('default', ['clean'], function () {
-    gulp.run('html','styles', 'scripts', 'images');
+    gulp.run('jade','styles', 'scripts', 'images');
 });
 
 // Watch
 gulp.task('watch', function () {
 
     // Watch .html files
-    gulp.watch(path.src.html, function (event) {
+    gulp.watch(path.src.jade, function (event) {
         console.log('File ' + event.path + ' was ' + event.type + ', running tasks...');
-        gulp.run('html');
+        gulp.run('jade');
     });
+    // Watch .html files
+    // gulp.watch(path.src.html, function (event) {
+    //     console.log('File ' + event.path + ' was ' + event.type + ', running tasks...');
+    //     gulp.run('html');
+    // });
     // Watch .scss files
     gulp.watch(path.src.styles, function (event) {
         console.log('File ' + event.path + ' was ' + event.type + ', running tasks...');
