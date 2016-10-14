@@ -96,7 +96,7 @@ gulp.task('clean', function () {
 
 // Default task
 gulp.task('default', ['clean'], function () {
-    gulp.run('jade','styles', 'scripts', 'images');
+    gulp.run('jade','styles', 'scripts', 'images', 'watch');
 });
 
 // Watch

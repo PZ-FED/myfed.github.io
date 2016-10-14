@@ -1,5 +1,21 @@
 var mobile = false;
 
+// var facebookShare = function () {
+//
+//     <!-- Load Facebook SDK for JavaScript -->
+//     (function (d, s, id) {
+//         var js, fjs = d.getElementsByTagName(s)[0];
+//         if (d.getElementById(id)) return;
+//         js = d.createElement(s);
+//         js.id = id;
+//         js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1";
+//         fjs.parentNode.insertBefore(js, fjs);
+//     }(document, 'script', 'facebook-jssdk'));
+// }
+// facebookShare();
+
+
+
 var menuActions = function (e) {
     e.stopPropagation();
 
@@ -13,16 +29,16 @@ var menuActions = function (e) {
 }
 
 
-var checkIfMobile = function(){
+var checkIfMobile = function () {
     var windowScreenWidth = $(window).width();
     var mainWrapper = $('#main-wrapper');
 
     // console.log(windowScreenWidth);
 
-    if (windowScreenWidth < 769){
+    if (windowScreenWidth < 769) {
         mainWrapper.addClass('mobile');
         return true;
-    }else{
+    } else {
         mainWrapper.removeClass('mobile');
         return false;
     }
@@ -37,23 +53,24 @@ var setEmailLink = function () {
     }
 }
 
-var showMore = function(e){
+var showMore = function (e) {
     // e.preventDefault();
     // e.stopPropagation();
-    if (mobile){
-        var clickedElement =$(e.target);
+    if (mobile) {
+        var clickedElement = $(e.target);
         clickedElement.toggleClass('shown').next('.show-more-content').toggleClass('shown');
     }
 
 
-
 }
+
+
 
 $(document).ready(function () {
 
     mobile = checkIfMobile();
 
-    $(window).resize(function(){
+    $(window).resize(function () {
         mobile = checkIfMobile();
     });
     setEmailLink();
