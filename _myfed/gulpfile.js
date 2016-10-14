@@ -5,7 +5,8 @@
 var path = {
     src: {
         html: 'html/**/*.html',
-        jade: 'jade/pages/**/*.jade',
+        // jade: ['jade/**/*.jade','!jade/layouts/*'],
+        jade: 'jade/**/*.jade',
         styles: 'scss/**/*.scss',
         scripts: 'scripts/**/*.js',
         images: 'images/**/*',

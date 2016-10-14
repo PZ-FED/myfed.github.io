@@ -1,7 +1,7 @@
-extends ../layout
+extends layouts/layout
 
 block content
-    p= title
+    p=  title
     h1 I work as a frontend developer!
         small My name is Paweł Ziętarski
     h2 Why this page exists?
@@ -9,5 +9,9 @@ block content
     p.leading-text I'm still learning, and the best way to learn is to teach others, so I will
         | try my thoughts on topics related to building websites.
         | I hope it will help people who want to take care of the web sites in the beginning of their adventure.
+        br
+        br
 
-    //.fb-share-button(data-href='http://www.your-domain.com/your-page.html', data-layout='button_count') Share
+    .fb-share-button(data-href=ogUrl, data-layout='button_count') Share
+
+

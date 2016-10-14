@@ -1,3 +1,14 @@
+block variables
+    - var title = 'Frontend devloper - Paweł Ziętarski'
+    - var metaKeywords = 'Frontend devloper, Paweł Ziętarski, javascript, html, html5, css3, css, jade, jQuery'
+    - var metaDescription = 'I hope it will help people who want to take care of the web sites in the beginning of their adventure. '
+    - var ogUrl = 'http://www.myfed.github.io'
+    - var ogType = 'website'
+    - var ogTitle = title
+    - var ogDescription = metaDescription
+    - var ogImage = ogUrl+'/images/myFed-logo-150x90.png'
+
+
 doctype html
 html(lang='en')
     head
@@ -23,15 +34,15 @@ html(lang='en')
         meta(name='msapplication-TileColor', content='#ffffff')
         meta(name='msapplication-TileImage', content='images/favicon/ms-icon-144x144.png')
         meta(name='theme-color', content='#ffffff')
-        meta(name='description', content='')
-        meta(name='keywords', content='')
+        meta(name='description', content=metaDescription)
+        meta(name='keywords', content=metaKeywords)
         meta(name='robots', content='index,follow')
 
-        meta(property="og:url",content="http://www.your-domain.com/your-page.html" )
-        meta(property="og:type",content="website")
-        meta(property="og:title",content="Your Website Title")
-        meta(property="og:description",content="Your description")
-        meta(property="og:image",content="http://www.your-domain.com/path/image.jpg")
+        meta(property="og:url",content=ogUrl )
+        meta(property="og:type",content=ogType)
+        meta(property="og:title",content=ogTitle)
+        meta(property="og:description",content=ogDescription)
+        meta(property="og:image",content=ogImage)
 
     body
         div.main-wrapper#main-wrapper
@@ -70,6 +81,6 @@ html(lang='en')
                 if (d.getElementById(id)) return;
                 js = d.createElement(s);
                 js.id = id;
-                js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1";
+                js.src = "//connect.facebook.net/pl_PL/all.js#xfbml=1";
                 fjs.parentNode.insertBefore(js, fjs);
             }(document, 'script', 'facebook-jssdk'));
